@@ -41,7 +41,7 @@ Saint Helena				0.00748
 Nauru					0.01001
 Cook Islands				0.0136
 Turks and Caicos Islands		0.02057
-Virgin Islands, British			0.02268
+Virgin Islands, British		0.02268
 Gibraltar				0.02846 */
 
 -- Question 4: What are all the distinct countries with a population of over 100 million in the year 2010?
@@ -55,13 +55,13 @@ China			1330.14129
 India			1173.10802
 US			310.23286
 Indonesia		242.96834
-Brazil			201.10333
+Brazil		201.10333
 Pakistan		184.40479
 Bangladesh		156.11846
-Nigeria			152.21734
-Russia			139.39021
+Nigeria		152.21734
+Russia		139.39021
 Japan			126.80443
-Mexico			112.46886 */
+Mexico		112.46886 */
 
 -- Question 5: How many countries in this dataset have the word “Islands” in their name?
 SELECT COUNT(DISTINCT country)
