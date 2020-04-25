@@ -1,0 +1,116 @@
+-- Query to learn about the table columns
+
+SELECT full_name, email
+FROM transaction_data
+WHERE zip = 20252;
+
+/* 
+The finance department noted that some of the fraudulent transactions were recorded as coming from the zip code 20252.
+*/
+
+-- Full names and emails of transactions in zip code 20252
+
+SELECT full_name, email
+FROM transaction_data
+WHERE zip = 20525;
+
+/*
+Query Results
+
+full_name	email
+
+Grantham Keat		gkeat2h@ucla.edu
+Francesca Braban	fbraban4z@free.fr
+Winnah Spiring		wspiring63@huffingtonpost.com
+Jenn Matzel		jmatzel70@cmu.edu
+Chance Pinare		cpinare7p@examiner.com
+Milli Bovingdon		mbovingdon8c@wix.com
+Ernie Levermore		elevermoreqw@cocolog-nifty.com
+*/
+
+/* Finance has also noticed a number of pseudonyms associated with fraudulent transactions.
+
+The fraudsters thought it would be funny to use ‘Art Vandelay’ for their full name or add a ‘der’ for their middle name.
+
+Query to find names and emails associated with these transaction*/
+
+SELECT full_name, email
+FROM transaction_data
+WHERE full_name = 'Art Vandelay'
+   OR full_name LIKE '% der %';
+   
+/* 
+Query Results
+
+full_name	email
+
+Parrnell Van der Mark	pvan4q@craigslist.org
+Art Vandelay	tloyb6@un.org
+Art Vandelay	bstreightdp@example.com
+Art Vandelay	bduvalfh@cpanel.net
+Art Vandelay	acastgo@hibu.com
+Art Vandelay	maimableia@hhs.gov
+Art Vandelay	nmcnicklemw@springer.com
+Art Vandelay	aiacomopx@ed.gov
+*/
+
+/* 
+There are some irregularities in the IP addresses where transactions are originating from.
+
+For example, any IP address beginning with ‘10.’ is reserved for internal use.
+
+We shouldn’t see IP addresses like this accessing out company’s service.
+Query to find internal emails
+*/
+
+SELECT ip_address, email
+FROM transaction_data
+WHERE ip_address LIKE '10.%';
+
+/* 
+Query Results
+
+ip_address	email
+
+10.1.2.7	dlindmarkb8@utexas.edu
+10.176.214.47	pnekrewsbd@reference.com
+10.1.78.70	egligoracid6@hao123.com
+10.84.225.46	eminchindenmk@google.com.br
+10.1.2.3	spesicqp@google.it
+10.1.2.4	lansettre@usgs.gov
+*/
+
+/* 
+Users are making fraudulent transactions using a temporary email address service. These services provide a short-lived email that can be verified and then self-destructs.
+Query to find emails that uses 'temp_emai.com' as domain
+*/
+
+SELECT email
+FROM transaction_data
+WHERE email LIKE '%temp_email.com';
+
+/* 
+Query Results
+
+email
+obemwellw@temp_email.com
+hmchm@temp_email.com
+sfessionsll@temp_email.com
+btibaldnd@temp_email.com
+*/
+
+/* 
+The finance department is looking for a specific transaction. They know that the transaction occurred from an ip address starting with ‘120.’ and their full name starts with ‘John’.
+*/
+
+SELECT *
+FROM transaction_data
+WHERE full_name LIKE 'John%'
+  AND ip_address LIKE '120.%';
+
+/*
+Query Results
+id	full_name	email	zip	ip_address
+672	Johnathan Brilleman	jbrillemanin@tinypic.com	8922	120.66.58.128
+*/
+
