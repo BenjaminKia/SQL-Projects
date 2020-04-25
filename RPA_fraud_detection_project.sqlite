@@ -3,15 +3,14 @@
 
 -- Query to learn about the table columns
 
-SELECT full_name, email
+SELECT *
 FROM transaction_data
-WHERE zip = 20252;
+LIMIT 10;
 
 /* 
 The finance department noted that some of the fraudulent transactions were recorded as coming from the zip code 20252.
 */
 
--- Full names and emails of transactions in zip code 20252
 
 SELECT full_name, email
 FROM transaction_data
