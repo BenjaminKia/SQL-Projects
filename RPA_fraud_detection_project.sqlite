@@ -1,3 +1,6 @@
+-- A company's finance department is experiencing fraudulent transactions and have asked me to find the fraudsters.
+-- This project is fictional
+
 -- Query to learn about the table columns
 
 SELECT full_name, email
